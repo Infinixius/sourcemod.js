@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#chatAll">chatAll</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme usertext">
+        <article><p align="center">
+<img src="https://infinixi.us/sourcemod.js/assets/logo_shadow.png">
+</p>
+<p>A JavaScript wrapper over SourceMod.</p>
+<h1>Installation</h1>
+<pre class="prettyprint source"><code>npm install sourcemod.js
+</code></pre>
+<p>First of all, install <a href="https://www.sourcemm.net/">MetaMod: Source</a> and <a href="https://www.sourcemod.net/">SourceMod</a> onto your Source server. Any version over <strong>1.10</strong> should work. Run your server and ensure SourceMod is working by running <code>sm version</code>.</p>
+<p>Head over to the <a href="https://github.com/Infinixius/sourcemod.js/releases">releases</a>, and grab the latest plugin download. Drop it in <code>tf\addons\sourcemod\plugins</code>.</p>
+<p>The plugin also uses <a href="https://github.com/clugg/sm-json">clugg's <code>sm-json</code></a> and <a href="https://github.com/peace-maker/sm-websocket">peace-maker's <code>sm-websocket</code></a> to communicate with the JavaScript plugin over WebSockets. Go ahead and install them to your server.</p>
+<p>You should see the following if it worked:</p>
+<pre class="prettyprint source"><code>[SMJS] sourcemod.js loaded!
+[SMJS] Started WebSocket server on port 12345!
+</code></pre>
+<p>You can also run the console command <code>smjs_test</code>:</p>
+<pre class="prettyprint source"><code>[SMJS] Test!
+</code></pre>
+<h1>Examples</h1>
+<pre class="prettyprint source lang-js"><code>import { Server } from &quot;sourcemod.js&quot;
+
+const server = await new Server(&quot;ws://localhost:12345&quot;)
+server.connect()
+
+server.on(&quot;ready&quot;, async () => {
+	console.log(&quot;Connected!&quot;)
+	server.players.on(&quot;connect&quot;, (player) => {
+		console.log(`${player.name} connected!`)
+	})
+	server.players.on(&quot;disconnect&quot;, (player) => {
+		console.log(`${player.name} disconnected!`)
+	})
+})
+
+// node test.js
+// Connected!
+// infinixius connected!
+// infinixius disconnected!
+</code></pre>
+<p>Documentation is available at <a href="https://infinixi.us/sourcemod.js">https://infinixi.us/sourcemod.js</a>.</p>
+<h1>Contributing</h1>
+<p>Before creating an issue or pull request, please ensure that it hasn't already been reported or suggested, and double-check the <a href="https://infinixi.us/sourcemod.js">docs</a>.</p>
+<p>Other than that, feel free to contribute! Bugfixes, new features, or just better code in general are all greatly appreciated!</p>
+<h1>License</h1>
+<p>This project is under the <a href="https://mit-license.org/">MIT License</a>. This allows you to use, modify, and distribute the source code as long as you include the license.</p>
+<h1>Troubleshooting</h1>
+<h3><code>Exception reported: Invalid match index passed.</code></h3>
+<p>This is an issue with <code>sm-websockets</code>. Use <a href="https://github.com/peace-maker/sm-websocket/files/7966813/websocket.zip">this version</a> I built myself that contains the fix, or just build it yourself.</p>
+<h3><code>Error: connect ECONNREFUSED</code></h3>
+<p>This error boils down to the JavaScript plugin not being able to connect to the WebSocket server. This could be for several reasons:</p>
+<ul>
+<li>The SourceMod server isn't up</li>
+<li>The SourceMod plugin isn't working</li>
+<li>The port (<code>12345</code>) is taken by another service, or isn't port forwarded properly. (you need to port forward this port if you aren't accessing the WebSocket server from a LAN connection)</li>
+<li>You aren't connected to the internet</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Mon Feb 14 2022 18:12:47 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

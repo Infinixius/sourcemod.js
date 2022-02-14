@@ -1,0 +1,8 @@
+.vscode
+node_modules
+test
+
+plugin/addons
+plugin/build.ps1
+plugin/sourcemod.js.smx
+test.js

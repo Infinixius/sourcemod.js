@@ -1,0 +1,25 @@
+{
+  "name": "sourcemod.js",
+  "version": "1.0.0",
+  "description": "A JavaScript wrapper over SourceMod",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinixius/sourcemod.js.git"
+  },
+  "author": "infinixius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infinixius/sourcemod.js/issues"
+  },
+  "homepage": "https://github.com/infinixius/sourcemod.js#readme",
+  "dependencies": {
+    "clean-jsdoc-theme": "^3.3.1",
+    "docdash": "^1.2.0",
+    "ws": "^8.4.2"
+  },
+  "type": "module"
+}

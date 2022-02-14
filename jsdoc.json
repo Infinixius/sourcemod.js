@@ -1,0 +1,46 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "source": {
+        "include": ["src"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+    },
+    "opts": {
+		"template": "node_modules/docdash",
+		
+        "destination": "docs",
+        "recurse": true,
+        "readme": "README.md"
+    },
+	"docdash": {
+		"search": true,
+		"typedefs": true,
+		"menu": {
+            "GitHub": {
+                "href": "https://github.com/Infinixius/sourcemod.js",
+                "target": "_blank",
+                "class": "menu-item",
+                "id": "github_link"
+            }
+		},
+		"sectionOrder": [
+			"Classes",
+			"Modules",
+			"Externals",
+			"Namespaces",
+			"Mixins",
+			"Tutorials",
+			"Interfaces"
+	   ]
+	}
+}

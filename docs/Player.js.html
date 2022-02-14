@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Player.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#chatAll">chatAll</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Player.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import EventEmitter from "events"
+import { Events, Messages } from "./Socket.js"
+
+/**
+ * Object representing a player currently connected to the server.
+ * @class
+ * @property {object} players - The `Players` object this belongs to.
+ * @property {bool} partial - Whether this object is partial or not. Partial objects are only guaranteed to contain the `id` property.
+ * @property {number} id - ID of the player.
+ * @property {string} name - Name of the player.
+ * @property {string} ip - IP address of the player. (without the port)
+ * @property {number} health - Amount of health the player has.
+ * @property {string} weapon - The current weapon the player has equipped. (Example: `tf_weapon_scattergun`)
+ * @property {number} kills - Amount of kills the player currently has.
+ * @property {number} deaths - Amount of deaths the player currently has.
+ */
+ export class Player extends EventEmitter {
+	/**
+	 * @constructor
+	 * @param {string} players - The `Players` object this belongs to.
+	 * @param {object} data - Player data sent from the server.
+	 * @param {bool} partial - Whether this object is partial or not. Defaults to false.
+	 */
+	constructor (players, data, partial) {
+		super()
+		this.players = players
+		this.partial = partial ?? false
+
+		this.id = data.id ?? 0
+		this.name = data.name ?? ""
+		this.ip = data.ip ?? ""
+		this.health = data.health ?? 1
+		this.weapon = data.weapon ?? ""
+		this.kills = data.kills ?? 0
+		this.deaths = data.deaths ?? 0
+
+		this.players.on("chat", (data) => {
+			/**
+			 * Fires when this player sends a chat message to everybody.
+			 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
+			 * 
+			 * @event Player#chat
+			 * @param {string} message - Content of the chat message.
+			 */
+			this.emit("chat", {
+				message: data.message
+			})
+		})
+
+		this.players.on("teamchat", (data) => {
+			/**
+			 * Fires when this player sends a chat message to their own team.
+			 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
+			 * 
+			 * @event Player#teamchat
+			 * @param {string} message - Content of the chat message.
+			 */
+			this.emit("teamchat", {
+				message: data.message
+			})
+		})
+	}
+
+	/**
+	 * Kicks a player from the server.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/clients/KickClient)
+	 * 
+	 * @function
+	 * @param {string} reason - The reason for the kick. Cannot exceed 256 bytes.
+	 */
+	kick(reason) {
+		return this.players.server.socket.send(Messages.KickPlayer, {
+			id: this.id,
+			reason: reason
+		})
+	}
+
+	/**
+	 * Sends a message to a player's chatbox. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintToChat)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	chat(message) {
+		return this.players.server.socket.send(Messages.PlayerChat, {
+			id: this.id,
+			message: message
+		})
+	}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Mon Feb 14 2022 18:12:47 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
