@@ -2,6 +2,8 @@
 <img src="https://infinixi.us/sourcemod.js/assets/logo_shadow.png">
 </p>
 
+![npm](https://img.shields.io/npm/v/sourcemod.js)
+
 A JavaScript wrapper over SourceMod.
 
 # Installation
@@ -15,7 +17,7 @@ Head over to the [releases](https://github.com/Infinixius/sourcemod.js/releases)
 
 The plugin also uses [clugg's `sm-json`](https://github.com/clugg/sm-json) and [peace-maker's `sm-websocket`](https://github.com/peace-maker/sm-websocket) to communicate with the JavaScript plugin over WebSockets. Go ahead and install them to your server.
 
-You should see the following if it worked:
+Go ahead and run your server. You should see the following if it worked:
 ```
 [SMJS] sourcemod.js loaded!
 [SMJS] Started WebSocket server on port 12345!
