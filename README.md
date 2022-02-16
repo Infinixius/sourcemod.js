@@ -6,6 +6,8 @@
 
 A JavaScript wrapper over SourceMod.
 
+[SourceMod](https://www.sourcemod.net/) is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways. SourceMod.JS lets you write plugins or custom server logic in JavaScript, then interface with a SourceMod server via WebSockets.
+
 # Installation
 ```
 npm install sourcemod.js
@@ -27,6 +29,8 @@ You can also run the console command `smjs_test`:
 ```
 [SMJS] Test!
 ```
+
+While the connection via WebSockets technically allows you to remotely control a SourceMod server, it's ideal to have the server and the SourceMod.JS plugin running on the same computer (or network) to minimize latency.
 
 # Examples
 
@@ -52,7 +56,7 @@ server.on("ready", async () => {
 // infinixius disconnected!
 ```
 
-Documentation is available at [https://infinixi.us/sourcemod.js](https://infinixi.us/sourcemod.js).
+Documentation is available at [https://sourcemod.js.org/](https://sourcemod.js.org/).
 
 # Contributing
 

@@ -41,6 +41,18 @@
 			"Mixins",
 			"Tutorials",
 			"Interfaces"
-	   ]
+	   ],
+	   "openGraph": {
+		   "title": "SourceMod.JS Documentation",
+		   "type": "website",
+		   "image": "https://sourcemod.js.org/assets/socialpreview.png",
+		   "site_name": "SourceMod.JS Documentation",
+		   "url": "https://sourcemod.js.org"
+	   },
+	   "meta": {
+		   "title": "SourceMod.JS Documentation",
+		   "description": "A JavaScript wrapper over SourceMod.",
+		   "keyword": "sourcemod, sourcemod.js"
+	   }
 	}
 }

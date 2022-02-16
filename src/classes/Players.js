@@ -27,7 +27,7 @@ import { Player } from "./Player.js"
 				 * Fires when a player connects to the server. Make sure to fetch with `Players.fetch()` before interacting with players.
 				 * [SourceMod API Reference](https://wiki.alliedmods.net/Generic_Source_Server_Events#player_connect)
 				 * 
-				 * @event Server#connect
+				 * @event Players#connect
 				 * @param {number} id - ID of the player, specific to this server.
 				 * @param {string} name - Username of the player.
 				 * @param {string} ip - IP address of the player. Will be `none` if this player is a bot.
@@ -47,7 +47,7 @@ import { Player } from "./Player.js"
 				 * Fires when a player disconnects to the server. Make sure to fetch with `Players.fetch()` before interacting with players.
 				 * [SourceMod API Reference](https://wiki.alliedmods.net/Generic_Source_Server_Events#player_connect)
 				 * 
-				 * @event Server#disconnect
+				 * @event Players#disconnect
 				 * @param {number} id - ID of the player, specific to this server.
 				 * @param {string} name - Username of the player.
 				 * @param {string} steamid - Steam ID of the player, in steamID3 format (example: `[U:1:1049895252]`). Will be `BOT` if the player is a bot.
