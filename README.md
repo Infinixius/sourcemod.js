@@ -6,7 +6,7 @@
 
 A JavaScript wrapper over SourceMod.
 
-[SourceMod](https://www.sourcemod.net/) is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways. SourceMod.JS lets you write plugins or custom server logic in JavaScript, then interface with a SourceMod server via WebSockets.
+[SourceMod](https://www.sourcemod.net/) is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways, while SourceMod.JS lets you write plugins or custom server logic in JavaScript (instead of SourcePawn, the complicated language SourceMod uses), then interface with a SourceMod server via WebSockets.
 
 # Installation
 ```
