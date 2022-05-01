@@ -1,0 +1,28 @@
+{
+	"Installation": {
+		"title": "Installation",
+		"children": {
+			"InstallationServer": {
+				"title": "Server Installation"
+			},
+			"InstallationClient": {
+				"title": "Client Installation"
+			}
+		}
+	},
+	"Troubleshooting": {
+		"title": "Troubleshooting"
+	},
+	"Configuration": {
+		"title": "Configuration"
+	},
+	"SoundsTF2": {
+		"title": "Sounds - Team Fortress 2"
+	},
+	"SoundsCSGO": {
+		"title": "Sounds - Counter-Strike: Global Offensive"
+	},
+	"SoundsHL2": {
+		"title": "Sounds - Half-Life 2"
+	}
+}

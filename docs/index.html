@@ -41,7 +41,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#chatAll">chatAll</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li></ul>
 </nav>
 
 <div id="main">
@@ -76,22 +76,9 @@
 </p>
 <p><img src="https://img.shields.io/npm/v/sourcemod.js" alt="npm"></p>
 <p>A JavaScript wrapper over SourceMod.</p>
-<p><a href="https://www.sourcemod.net/">SourceMod</a> is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways. SourceMod.JS lets you write plugins or custom server logic in JavaScript, then interface with a SourceMod server via WebSockets.</p>
-<h1>Installation</h1>
+<p><a href="https://www.sourcemod.net/">SourceMod</a> is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways, while SourceMod.JS lets you write plugins or custom server logic in JavaScript (instead of SourcePawn, the complicated language SourceMod uses), then interface with a SourceMod server via WebSockets.</p>
 <pre class="prettyprint source"><code>npm install sourcemod.js
 </code></pre>
-<p>First of all, install <a href="https://www.sourcemm.net/">MetaMod: Source</a> and <a href="https://www.sourcemod.net/">SourceMod</a> onto your Source server. Any version over <strong>1.10</strong> should work. Run your server and ensure SourceMod is working by running <code>sm version</code>.</p>
-<p>Head over to the <a href="https://github.com/Infinixius/sourcemod.js/releases">releases</a>, and grab the latest plugin download. Drop it in <code>tf\addons\sourcemod\plugins</code>.</p>
-<p>The plugin also uses <a href="https://github.com/clugg/sm-json">clugg's <code>sm-json</code></a> and <a href="https://github.com/peace-maker/sm-websocket">peace-maker's <code>sm-websocket</code></a> to communicate with the JavaScript plugin over WebSockets. Go ahead and install them to your server.</p>
-<p>Go ahead and run your server. You should see the following if it worked:</p>
-<pre class="prettyprint source"><code>[SMJS] sourcemod.js loaded!
-[SMJS] Started WebSocket server on port 12345!
-</code></pre>
-<p>You can also run the console command <code>smjs_test</code>:</p>
-<pre class="prettyprint source"><code>[SMJS] Test!
-</code></pre>
-<p>While the connection via WebSockets technically allows you to remotely control a SourceMod server, it's ideal to have the server and the SourceMod.JS plugin running on the same computer (or network) to minimize latency.</p>
-<h1>Examples</h1>
 <pre class="prettyprint source lang-js"><code>import { Server } from &quot;sourcemod.js&quot;
 
 const server = await new Server(&quot;ws://localhost:12345&quot;)
@@ -115,20 +102,10 @@ server.on(&quot;ready&quot;, async () => {
 <p>Documentation is available at <a href="https://sourcemod.js.org/">https://sourcemod.js.org/</a>.</p>
 <h1>Contributing</h1>
 <p>Before creating an issue or pull request, please ensure that it hasn't already been reported or suggested, and double-check the <a href="https://infinixi.us/sourcemod.js">docs</a>.</p>
+<p>Currently, the only supported and tested game server is Team Fortress 2. If you'd like to help port and test sourcemod.js to other Source games, feel free to!</p>
 <p>Other than that, feel free to contribute! Bugfixes, new features, or just better code in general are all greatly appreciated!</p>
 <h1>License</h1>
-<p>This project is under the <a href="https://mit-license.org/">MIT License</a>. This allows you to use, modify, and distribute the source code as long as you include the license.</p>
-<h1>Troubleshooting</h1>
-<h3><code>Exception reported: Invalid match index passed.</code></h3>
-<p>This is an issue with <code>sm-websockets</code>. Use <a href="https://github.com/peace-maker/sm-websocket/files/7966813/websocket.zip">this version</a> I built myself that contains the fix, or just build it yourself.</p>
-<h3><code>Error: connect ECONNREFUSED</code></h3>
-<p>This error boils down to the JavaScript plugin not being able to connect to the WebSocket server. This could be for several reasons:</p>
-<ul>
-<li>The SourceMod server isn't up</li>
-<li>The SourceMod plugin isn't working</li>
-<li>The port (<code>12345</code>) is taken by another service, or isn't port forwarded properly. (you need to port forward this port if you aren't accessing the WebSocket server from a LAN connection)</li>
-<li>You aren't connected to the internet</li>
-</ul></article>
+<p>This project is under the <a href="https://mit-license.org/">MIT License</a>. This allows you to use, modify, and distribute the source code as long as you include the license.</p></article>
     </section>
 
 
@@ -143,7 +120,7 @@ server.on(&quot;ready&quot;, async () => {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Feb 16 2022 17:02:50 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sun May 01 2022 17:19:11 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

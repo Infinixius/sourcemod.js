@@ -41,7 +41,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#chatAll">chatAll</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li></ul>
 </nav>
 
 <div id="main">
@@ -131,11 +131,1495 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="checkBytes"><span class="type-signature"></span>checkBytes<span class="signature">(str, max)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line195">line 195</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Checks if a string exceeds a certain number of bytes. Used internally.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The string to test.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>max</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The maximum amount of bytes</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc usertext">
+    
+        <p>Will throw if <code>str</code> exceeds <code>max</code> bytes.</p>
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>If the string exceeded <code>max</code> bytes</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="randArray"><span class="type-signature"></span>randArray<span class="signature">()</span><span class="type-signature"> &rarr; {any}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line165">line 165</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Returns a random item from the array.
+// example: [0,1,2,3,4,5,6,7,8,9].random()</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Random item from the array</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">any</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="randInt"><span class="type-signature"></span>randInt<span class="signature">(min, max)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line150">line 150</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Returns a random number between min and max.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>min</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>max</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="range"><span class="type-signature"></span>range<span class="signature">(amount)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line176">line 176</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Returns an array with elements up to amount, intended to be used in for loops. Essentially a port of Python's range().
+example: Array.range(5) == [ 0, 1, 2, 3, 4 ]</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Amount of elements in the array</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Type Definitions</h3>
 
         
+                
+<h4 class="name" id="DisconnectReasons">DisconnectReasons</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line229">line 229</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Disconnect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Provided when a client willingly disconnects from the server.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Unauthorized</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Provided when a client fails authentication and is kicked.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TimedOut</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Provided when a client doesn't send a message for 5 seconds.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>UnknownError</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Provided when an unknown error occured on the server.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="EngineVersion">EngineVersion</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>NoEngine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Unknown engine</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Unknown</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Could not determine the engine version</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Original</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Original Source Engine (used by The Ship)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SourceSDK2006</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Episode 1 Source Engine (second major SDK)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SourceSDK2007</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Orange Box Source Engine (third major SDK)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Left4Dead</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Left 4 Dead</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DarkMessiah</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Dark Messiah Multiplayer (based on original engine)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Left4Dead2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Left 4 Dead 2</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>AlienSwarm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Alien Swarm (and Alien Swarm SDK)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>BloodyGoodTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Bloody Good Time</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EYE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>E.Y.E Divine Cybermancy</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Portal2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Portal 2</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CSGO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Counter-Strike: Global Offensive</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CSSOURCE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Counter-Strike: Source</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DOTA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Dota 2</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>HL2DM</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Half-Life 2 Deathmatch</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DODS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Day of Defeat: Source</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TF2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Team Fortress 2</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NuclearDawn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Nuclear Dawn</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SDK2013</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Source SDK 2013</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Blade</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Blade Symphony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Insurgency</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Insurgency (2013 Retail version)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Contagion</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Contagion</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>BlackMesa</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Black Mesa Multiplayer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DOI</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Day of Infamy</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
                 
 <h4 class="name" id="Events">Events</h4>
 
@@ -148,7 +1632,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line130">line 130</a>
+        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line207">line 207</a>
     </li></ul></dd>
     
 
@@ -250,7 +1734,7 @@
 
             
 
-            <td class="description last"><p>Contains information about a connected player. Received after running <code>Players.fetch()</code></p></td>
+            <td class="description last"><p>Contains information about a connected player. Received after running <code>Players.fetch()</code> or <code>Player.fetch()</code>.</p></td>
         </tr>
 
     
@@ -300,6 +1784,98 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>Disconnect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Received if the client was disconnected by the server. A reason should be provided.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Ping</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sent by the server every second to ensure a client is still connected. Expects the Pong response.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ServerUpdate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Contains information about the server. Received after running <code>Server.fetch()</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ConVarChanged</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Received when a ConVar changes.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -328,7 +1904,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line112">line 112</a>
+        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line161">line 161</a>
     </li></ul></dd>
     
 
@@ -437,6 +2013,29 @@
 
         <tr>
             
+                <td class="name"><code>FetchPlayer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Instructs the server to send a PlayerUpdate event for a specific client.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>FetchPlayers</code></td>
             
 
@@ -453,7 +2052,7 @@
 
             
 
-            <td class="description last"><p>Instructs the server to PlayerUpdate events for every client connected.</p></td>
+            <td class="description last"><p>Instructs the server to send PlayerUpdate events for every client connected.</p></td>
         </tr>
 
     
@@ -526,6 +2125,1332 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>Pong</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sent in response to a Ping event.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FetchServer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Instructs the server to send a ServerUpdate event.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlayerHint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sends a hint text message to a specific player.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlayerHintAll</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sends a hint text message to all players.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlayerCenterHint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sends a center hint text message to a specific player.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlayerCenterHintAll</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sends a center hint text message to all players.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlaySound</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Plays a sound to a specific player.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PlaySoundAll</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Plays a sound to all players.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SetMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Forcefully changes the server's map</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SetNextMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sets the server's next map.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TeleportPlayer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Teleports a player to another player.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SlapPlayer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Slaps a player.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SetPlayerRendering</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sets a player's rendering color/effect/mode.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="RenderEffects">RenderEffects</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>NONE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PULSE_SLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PULSE_FAST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PULSE_SLOW_WIDE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PULSE_FAST_WIDE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FADE_SLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FADE_FAST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SOLID_SLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SOLID_FAST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STROBE_SLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STROBE_FAST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STROBE_FASTER</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLICKER_SLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FLICKER_FAST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NO_DISSIPATION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DISTORT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>HOLOGRAM</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EXPLODE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GLOWSHELL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CLAMP_MIN_SCALE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ENV_RAIN</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ENV_SNOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SPOTLIGHT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>RAGDOLL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PULSE_FAST_WIDER</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MAX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="RenderModes">RenderModes</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Utilities.js.html">Utilities.js</a>, <a href="Utilities.js.html#line115">line 115</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>NORMAL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSCOLOR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>c<em>a+dest</em>(1-a)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSTEXTURE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src<em>a+dest</em>(1-a)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src*a+dest -- No Z buffer checks -- Fixed size in screen space</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSALPHA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src<em>srca+dest</em>(1-srca)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSADD</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src*a+dest</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ENVIRONMENTAL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>not drawn, used for environmental effects</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSADDFRAMEBLEND</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>use a fractional frame value to blend between animation frames</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRANSALPHAADD</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>src + dest*(1-a)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WORLDGLOW</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Same as kRenderGlow but not fixed size in screen space</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NONE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Don't render.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -559,7 +3484,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Feb 16 2022 17:02:50 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sun May 01 2022 17:19:11 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

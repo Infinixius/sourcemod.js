@@ -1,10 +1,10 @@
 {
   "name": "sourcemod.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A JavaScript wrapper over SourceMod",
   "main": "src/index.js",
   "scripts": {
-    "build": "jsdoc -c jsdoc.json"
+    "build": "jsdoc -c jsdoc.json --tutorials src/tutorials"
   },
   "repository": {
     "type": "git",

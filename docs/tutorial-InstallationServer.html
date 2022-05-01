@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Tutorial: Server Installation - SourceMod.JS Documentation</title>
+    
+    <meta name="description" content="A JavaScript wrapper over SourceMod." />
+    
+        <meta name="keywords" content="sourcemod, sourcemod.js" />
+        <meta name="keyword" content="sourcemod, sourcemod.js" />
+    
+    
+    
+    <meta property="og:title" content="SourceMod.JS Documentation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://sourcemod.js.org/assets/socialpreview.png"/>
+    <meta property="og:site_name" content="SourceMod.JS Documentation"/>
+    <meta property="og:url" content="https://sourcemod.js.org"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Tutorial: Server Installation</h1>
+    
+
+    <section>
+
+<header>
+    
+
+    <h2>Server Installation</h2>
+</header>
+
+<article>
+    <p>Please make sure you've completed the basic <a href="tutorial-Installation.html">Installation</a> before reading this part!</p>
+<p>In this part of the installation, we're going to install SourceMod and the neccessary plugins to your Source server.</p>
+<h2>SourceMod</h2>
+<p>Download the latest stable version of <a href="https://www.sourcemm.net/downloads.php?branch=stable">MetaMod: Source</a> and <a href="https://www.sourcemod.net/downloads.php?branch=stable">SourceMod</a> for your operating system. Any version should work, but it's important you get a version of SourceMod over <strong>1.10</strong>. Skip this part if you already have these two.</p>
+<p>Unzip the <code>.zip</code> files you downloaded, and extract them directly into your server's game directory.</p>
+<p>For example, if you're installing SourceMod 1.10.0 for Windows for a Team Fortress 2 server, you'd have the following files:</p>
+<pre class="prettyprint source"><code>sourcemod-1.10.0-git6528-windows.zip/
+├─ addons/
+├─ cfg/
+</code></pre>
+<p>Copy <code>addons/</code> and <code>cfg/</code> directly into the <code>tf2</code> folder in your server's folder:</p>
+<pre class="prettyprint source"><code>bin/
+hl2/
+platform/
+steamapps/
+tf2/ &lt;-- unzip into this
+srcds.exe
+steam_appid.txt
+thirdpartylegalnotices.txt
+</code></pre>
+<p>Go ahead and run your server, and ensure SourceMod is working by running <code>sm version</code>.
+If you see something like this, it's working!</p>
+<pre class="prettyprint source"><code>sm version
+	SourceMod Version Information:
+	SourceMod Version: 1.10.0.6528
+	SourcePawn Engine: 1.10.0.6528, jit-x86 (build 1.10.0.6528)
+	SourcePawn API: v1 = 5, v2 = 12
+	Compiled on: Nov 16 2021 01:35:28
+	Built from: https://github.com/alliedmodders/sourcemod/commit/9149a172
+	Build ID: 6528:9149a172
+	http://www.sourcemod.net/
+</code></pre>
+<h2>Plugins</h2>
+<p>Now that we've got SourceMod working, we need to get the plugins required.</p>
+<ul>
+<li><a href="https://github.com/Infinixius/sourcemod.js/releases">sourcemod.js</a> - Download the latest <code>.smx</code> file and drop it into <code>tf/addons/sourcemod/plugins</code>. (replace <code>tf</code> with your appropiate game server)</li>
+<li><a href="https://github.com/clugg/sm-json/releases">sm-json</a> - Download the latest Source code <code>.zip</code>. Unzip it, and copy the <code>addons</code> folder to your game's directory as we did earlier with SourceMod.</li>
+<li><a href="https://github.com/peace-maker/sm-websocket/files/7966813/websocket.zip">sm-websocket (fixed)</a> - Unzip the file and copy the <code>.smx</code> file into your plugins directory, as we just did with sourcemod.js. (note: This is an unofficial version of the plugin, compilied by me. The official build does <a href="https://github.com/peace-maker/sm-websocket/pull/7">not work</a>, and has yet to be fixed. This version has a fix for that issue. If you really don't trust me, just <a href="https://github.com/peace-maker/sm-websocket">compile it yourself</a>)</li>
+<li><a href="http://forums.alliedmods.net/attachment.php?attachmentid=83286">Sockets</a> - Unzip it, and copy the <code>addons</code> folder to your game's directory as we did earlier with SourceMod.</li>
+</ul>
+<p>Go ahead and run your server. You should see the following if it worked:</p>
+<pre class="prettyprint source"><code>[SMJS] sourcemod.js loaded!
+[SMJS] Started WebSocket server on port 27013!
+</code></pre>
+<p>You can also run the console command <code>smjs_test</code>:</p>
+<pre class="prettyprint source"><code>[SMJS] Test!
+</code></pre>
+<p>And that's it! sourcemod.js has successfully been installed to your Source server. Next up, it's time for the <a href="tutorial-InstallationClient.html">client installation</a>.</p>
+</article>
+
+</section>
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sun May 01 2022 17:19:11 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

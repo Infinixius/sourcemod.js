@@ -31,6 +31,12 @@
                 "target": "_blank",
                 "class": "menu-item",
                 "id": "github_link"
+            },
+			"NPM": {
+                "href": "https://www.npmjs.com/package/sourcemod.js",
+                "target": "_blank",
+                "class": "menu-item",
+                "id": "npm_link"
             }
 		},
 		"sectionOrder": [

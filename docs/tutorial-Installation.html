@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Tutorial: Installation - SourceMod.JS Documentation</title>
+    
+    <meta name="description" content="A JavaScript wrapper over SourceMod." />
+    
+        <meta name="keywords" content="sourcemod, sourcemod.js" />
+        <meta name="keyword" content="sourcemod, sourcemod.js" />
+    
+    
+    
+    <meta property="og:title" content="SourceMod.JS Documentation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://sourcemod.js.org/assets/socialpreview.png"/>
+    <meta property="og:site_name" content="SourceMod.JS Documentation"/>
+    <meta property="og:url" content="https://sourcemod.js.org"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Tutorial: Installation</h1>
+    
+
+    <section>
+
+<header>
+    
+    <ul>
+        <li><a href="tutorial-InstallationServer.html">Server Installation</a></li>
+    
+        <li><a href="tutorial-InstallationClient.html">Client Installation</a></li>
+    </ul>
+    
+
+    <h2>Installation</h2>
+</header>
+
+<article>
+    <p>Installation is split into two steps, the <strong>server</strong> installation, which means installing sourcemod.js and SourceMod onto your Source server, and the <strong>client</strong> installation, which means installing the npm module and connecting.</p>
+<p>Make sure you have the following before continuing:</p>
+<ul>
+<li><a href="https://nodejs.org">Node.JS</a></li>
+<li><a href="https://www.npmjs.com/">NPM</a> (should come with Node)</li>
+<li>Any Source server (Team Fortress 2, Counter-Strike: Global Offensive, etc)</li>
+<li>An internet connection</li>
+</ul>
+<p>Once you've gotten the prerequisites, go ahead and start off with the <a href="tutorial-InstallationServer.html">server installation</a>.</p>
+</article>
+
+</section>
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sun May 01 2022 17:19:11 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

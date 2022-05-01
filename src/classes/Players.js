@@ -19,8 +19,13 @@ import { Player } from "./Player.js"
 		this.players = new Map()
 
 		this.server.on("ready", () => {
-			this.server.socket.on(Events.PlayerUpdate, (playerdata) => {
-				this.players.set(playerdata.id, new Player(this, playerdata))
+			this.server.socket.on(Events.PlayerUpdate, (message) => {
+				var data = message.message
+				if (this.players.get(data.id)) {
+					this.players.get(data.id).update(data)
+				} else {
+					this.players.set(data.id, new Player(this, data))
+				}
 			})
 			this.server.socket.on(Events.PlayerConnect, (playerdata) => {
 				/**
@@ -31,16 +36,16 @@ import { Player } from "./Player.js"
 				 * @param {number} id - ID of the player, specific to this server.
 				 * @param {string} name - Username of the player.
 				 * @param {string} ip - IP address of the player. Will be `none` if this player is a bot.
-				 * @param {string} steamid - Steam ID of the player, in steamID3 format (example: `[U:1:1049895252]`). Will be `BOT` if the player is a bot.
+				 * @param {string} steamid - Steam ID of the player, in SteamID3 format (example: `[U:1:1049895252]`). Will be `BOT` if the player is a bot.
 				 * @param {bool} bot - Will be true if this player is a TFBot (or otherwise not a human player), or false if otherwise.
 				 */
-				this.emit("connect", {
-					id: playerdata.userid,
-					name: playerdata.name,
-					ip: playerdata.ip,
-					steamid: playerdata.networkid,
-					bot: playerdata.bot
-				})
+				this.emit("connect",
+					playerdata.userid,
+					playerdata.name,
+					playerdata.ip,
+					playerdata.networkid,
+					playerdata.bot
+				)
 			})
 			this.server.socket.on(Events.PlayerDisconnect, (playerdata) => {
 				/**
@@ -54,53 +59,40 @@ import { Player } from "./Player.js"
 				 * @param {string} reason - Reason for the player disconnecting. (examples: `Client Disconnect`, `Punting bot, server is hibernating`, `Kicked from server`, etc.)
 				 * @param {bool} bot - Will be true if this player is a TFBot (or otherwise not a human player), or false if otherwise.
 				 */
-				this.emit("disconnect", {
-					id: playerdata.userid,
-					name: playerdata.name,
-					steamid: playerdata.networkid,
-					reason: playerdata.reason,
-					bot: playerdata.bot
-				})
+				this.emit("disconnect", 
+					playerdata.userid,
+					playerdata.name,
+					playerdata.networkid,
+					playerdata.reason,
+					playerdata.bot
+				)
 			})
 			this.server.socket.on(Events.PlayerChat, (data) => {
-				var plr = this.players.get(data.userid) ?? new Player(this.server, {id: data.userid}, true)
+				var msg = data.message
+				var plr = this.players.get(msg.userid) ?? new Player(this, {id: msg.userid}, true)
+				this.players.set(msg.userid, plr)
 				
-				if (data.command == "say") {
-					/**
-					 * Fires when a player sends a chat message to everybody.
-					 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
-					 * 
-					 * @event Players#chat
-					 * @param {number} id - ID of the player, specific to this server.
-					 * @param {string} message - Content of the chat message.
-					 */
-					this.emit("chat", {
-						player: plr,
-						message: data.message
-					})
-				} else if (data.command == "say_team") {
-					/**
-					 * Fires when a player sends a chat message to their team.
-					 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
-					 * 
-					 * @event Players#teamchat
-					 * @param {number} id - ID of the player, specific to this server.
-					 * @param {string} message - Content of the chat message.
-					 */
-					this.emit("teamchat", {
-						player: plr,
-						message: data.message
-					})
-				}
+				/**
+				 * Fires when a player sends a chat message.
+				 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
+				 * 
+				 * @event Players#chat
+				 * @param {object} player - The player object who sent this message. Will be partial if not cached.
+				 * @param {string} message - Content of the chat message.
+				 * @param {bool} team - True if the chat message was a team message, and false otherwise.
+				 */
+				this.emit("chat", 
+					plr,
+					msg.args,
+					msg.command == "say_team"
+				)
 			})
 		})
 	}
 
 	/**
-	 * Fetches the list of all players currently connected. Keep in mind that `Players.players` will not always be up to date! Use this function to cache the list of players every so often.
+	 * Fetches the list of all players currently connected. Keep in mind that `Players.players` will not always be up to date! Use this function to cache the list of players every so often. Similar to `Player.fetch()`
 	 * @function
-	 * @param {string} type
-	 * @param {object} message
 	 * @returns {Map} List of all players currently connected, mapped by ID.
 	 */
 	async fetch() {
@@ -111,15 +103,68 @@ import { Player } from "./Player.js"
 	}
 
 	/**
-	 * Sends a message every player's chatbox. Cannot exceed 256 bytes.
+	 * Gets a player by ID.
+	 * @function
+	 * @param {number} id - The player's ID
+	 * @returns {Object} - Player object, or `null` if not found.
+	 */
+	get(id) {
+		return this.players.get(id) ?? null
+	}
+
+	/**
+	 * Broadcasts a message to every player's chatbox. Cannot exceed 256 bytes.
 	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintToChatAll)
 	 * 
 	 * @function
 	 * @param {string} message - The message to send.
 	 */
-	chatAll(message) {
+	broadcast(message) {
+		if (checkBytes(message, 256)) return
 		return this.server.socket.send(Messages.PlayerChatAll, {
 			message: message
 		})
+	}
+
+	/**
+	 * Broadcasts a message to a every player's hint box. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintHintTextToAll)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	broadcastHint(message) {
+		if (checkBytes(message, 256)) return
+		return this.server.socket.send(Messages.PlayerHintAll, {
+			id: this.id,
+			message: message
+		})
+	}
+
+	/**
+	 * Broadcasts a message to a every player's center hint box. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintCenterTextAll)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	broadcastCenterHint(message) {
+		if (checkBytes(message, 256)) return
+		return this.server.socket.send(Messages.PlayerCenterHintAll, {
+			id: this.id,
+			message: message
+		})
+	}
+
+	/**
+	 * Plays a sound to all players. The file path must be a game sound from `scripts/game_sound.txt` or `sound_misc_dir.vpk`. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/sdktools_sound/EmitGameSoundToClient)
+	 * 
+	 * @function
+	 * @param {string} path - File path to the sound
+	 */
+	broadcastSound(path) {
+		if (checkBytes(path, 256)) return
+		return this.server.socket.send(Messages.PlaySoundAll, path)
 	}
 }

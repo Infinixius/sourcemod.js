@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Tutorial: Troubleshooting - SourceMod.JS Documentation</title>
+    
+    <meta name="description" content="A JavaScript wrapper over SourceMod." />
+    
+        <meta name="keywords" content="sourcemod, sourcemod.js" />
+        <meta name="keyword" content="sourcemod, sourcemod.js" />
+    
+    
+    
+    <meta property="og:title" content="SourceMod.JS Documentation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://sourcemod.js.org/assets/socialpreview.png"/>
+    <meta property="og:site_name" content="SourceMod.JS Documentation"/>
+    <meta property="og:url" content="https://sourcemod.js.org"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Tutorial: Troubleshooting</h1>
+    
+
+    <section>
+
+<header>
+    
+
+    <h2>Troubleshooting</h2>
+</header>
+
+<article>
+    <p>You may come into a variety of problems and errors while using sourcemod.js. This guide tries to help with the most common ones.</p>
+<h2>Server Errors</h2>
+<p>These errors only occur on the Source server.</p>
+<h3><code>Exception reported: Invalid match index passed.</code></h3>
+<p>This is an issue with <code>sm-websockets</code>. Use <a href="https://github.com/peace-maker/sm-websocket/files/7966813/websocket.zip">this version</a> I built myself that contains the fix, or just build it yourself.</p>
+<h2>Client Errors</h2>
+<p>These errors only occur on the JavaScript plugin.</p>
+<h3><code>Error: connect ECONNREFUSED</code></h3>
+<p>This error boils down to the JavaScript plugin not being able to connect to the WebSocket server. This could be for several reasons:</p>
+<ul>
+<li>The SourceMod server isn't up</li>
+<li>The SourceMod plugin isn't working</li>
+<li>The port is taken by another service, or isn't port forwarded properly. (you need to port forward if you aren't accessing the WebSocket server from a LAN connection)</li>
+<li>You aren't connected to the internet</li>
+</ul>
+<h3><code>Error: Timed out!</code></h3>
+<p>This occurs when the server doesn't send a message in 5 seconds. This likely means the connection was terminated without the client knowing, or the server was forcefully shut down.</p>
+<h3><code>Error: Unauthorized!</code></h3>
+<p>This occurs when the authentication string provided to the server was incorrect.</p>
+<p>The authentication defaults to <code>test</code>, and is configured on the server via the <a href="https://developer.valvesoftware.com/wiki/Developer_Console#Commands_and_variables">ConVar</a> <code>smjs_auth</code>.</p>
+<p>You can authenticate like this:</p>
+<pre class="prettyprint source lang-js"><code>const server = await new Server(&quot;ws://localhost:6969&quot;, {auth: &quot;test&quot;})
+</code></pre>
+</article>
+
+</section>
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sun May 01 2022 17:19:12 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
