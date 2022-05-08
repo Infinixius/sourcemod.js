@@ -202,6 +202,7 @@ export class Socket extends EventEmitter {
 	TeleportPlayer: "TeleportPlayer",
 	SlapPlayer: "SlapPlayer",
 	SetPlayerRendering: "SetPlayerRendering"
+	TF2_RegeneratePlayer: "TF2_RegeneratePlayer"
 }
 
 /**

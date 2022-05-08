@@ -88,5 +88,7 @@ public void HandleMessage(const String:type[], const String:message[], const JSO
 		Message_SlapPlayer(type, message, jsondata, websocket)
 	} else if (StrEqual(type, "SetPlayerRendering")) {
 		Message_SetPlayerRendering(type, message, jsondata, websocket)
+	} else if (StrEqual(type, "TF2_RegeneratePlayer")) {
+		Message_RegeneratePlayer(type, message, jsondata, websocket)
 	}
 }

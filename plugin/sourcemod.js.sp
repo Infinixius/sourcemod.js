@@ -42,6 +42,7 @@ new Handle:g_hChilds
 #include "messages/SetPlayerRendering.sp"
 #include "messages/SlapPlayer.sp"
 #include "messages/TeleportPlayer.sp"
+#include "messages/tf2/RegeneratePlayer.sp"
 
 #include "websocket/WebsocketPing.sp"
 #include "websocket/WebsocketEvents.sp"

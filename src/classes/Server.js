@@ -1,6 +1,7 @@
 import EventEmitter from "events"
 import { Events, Messages, Socket } from "./Socket.js"
 import { Console } from "./Console.js"
+import { Game } from "./Game.js"
 import { Players } from "./Players.js"
 
 /**
@@ -11,7 +12,6 @@ import { Players } from "./Players.js"
  * @property {object} socket - An instance of the `Socket` class used for interacting with the WebSocket. Will be null if not yet connected.
  * @property {object} console - Instance of the `Console` object for this server.
  * @property {object} players - Instance of the `Players` object for this server.
- * 
  * @property {string} currentMap - Name of the current map.  Keep in mind that this is a generic response from the engine and not the game itself.
  * @property {bool} isDedicated - Whether the server is a dedicated server or not.
  * @property {sring} authID - The SteamID of the server.
@@ -35,6 +35,7 @@ export class Server extends EventEmitter {
 		this.socket = null
 		this.console = new Console(this)
 		this.players = new Players(this)
+		this.game = null
 
 		this.currentMap = ""
 		this.nextMap = ""
@@ -55,14 +56,8 @@ export class Server extends EventEmitter {
 	 */
 	async connect() {
 		await new Socket(this, this.host)
-			.then((socket) => {
+			.then(async (socket) => {
 				this.socket = socket
-				/**
-				 * Fired when the connection to the server has been established.
-				 * 
-				 * @event Server#ready
-				 */
-				this.emit("ready", true)
 
 				this.socket.on(Events.ServerUpdate, (data) => {
 					var msg = data.message
@@ -85,6 +80,27 @@ export class Server extends EventEmitter {
 						data.message.value
 					)
 				})
+
+				await this.fetch()
+
+				switch (this.gameDescription) {
+					case "Team Fortress":
+						await import("../games/TeamFortress2.js").then(module => {
+							this.game = new module.TeamFortress2()
+							this.game.serverModifier(this)
+						})
+						break
+					default:
+						this.game = new Game()
+						this.game.serverModifier(this)
+				}
+
+				/**
+				 * Fired when the connection to the server has been established.
+				 * 
+				 * @event Server#ready
+				 */
+				this.emit("ready", true)
 			})
 			.catch(err => { throw err })
 	}

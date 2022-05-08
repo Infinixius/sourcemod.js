@@ -40,6 +40,7 @@ import { checkBytes } from "./Utilities.js"
 		this.partial = partial ?? false
 
 		this.update(data)
+		this.players.server.game.playerModifier(this)
 
 		this.players.on("chat", (plr, message, team) => {
 			if (plr.id != this.id) return
