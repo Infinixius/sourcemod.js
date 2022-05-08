@@ -1,6 +1,6 @@
 import EventEmitter from "events"
 import { WebSocket } from "ws"
-import { uuid } from "../utils.js"
+import { UID } from "./Utilities.js"
 
 /**
  * Object for sending and receiving messages the raw WebSocket.
@@ -121,7 +121,7 @@ export class Socket extends EventEmitter {
 	 */
 	 async send(type, message) {
 		return new Promise((resolve, reject) => {
-			var ack = uuid()
+			var ack = UID()
 
 			this.ws.send(JSON.stringify({
 				type: type,
@@ -180,6 +180,8 @@ export class Socket extends EventEmitter {
  * @property {string} TeleportPlayer - Teleports a player to another player.
  * @property {string} SlapPlayer - Slaps a player.
  * @property {string} SetPlayerRendering - Sets a player's rendering color/effect/mode.
+ * 
+ * @property {string} TF2_RegeneratePlayer - Regenerates a player's ammo and health. Team Fortress 2 only.
  */
  export const Messages = {
 	PrintToServer: "PrintToServer",
@@ -201,7 +203,8 @@ export class Socket extends EventEmitter {
 	SetNextMap: "SetNextMap",
 	TeleportPlayer: "TeleportPlayer",
 	SlapPlayer: "SlapPlayer",
-	SetPlayerRendering: "SetPlayerRendering"
+	SetPlayerRendering: "SetPlayerRendering",
+
 	TF2_RegeneratePlayer: "TF2_RegeneratePlayer"
 }
 

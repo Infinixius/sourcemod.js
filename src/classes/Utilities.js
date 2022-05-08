@@ -199,3 +199,14 @@ export function range(amount) {
 
 	return Buffer.byteLength(str, "utf8") > max
 }
+
+/**
+ * Generates a UID (unique id)
+ * @function
+ * @returns {string} - The UID
+ */
+var uid = 0
+export function UID() {
+	uid++
+	return `${uid}-${randInt(0, 10000000)}`
+}

@@ -1,6 +1,7 @@
 import EventEmitter from "events"
 import { Events, Messages } from "./Socket.js"
 import { Player } from "./Player.js"
+import { checkBytes } from "./Utilities.js"
 
 /**
  * Object for interacting with players.
