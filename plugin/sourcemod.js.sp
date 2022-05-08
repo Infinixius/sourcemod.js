@@ -9,6 +9,9 @@
 #include <nextmap>
 #include <timers>
 
+#include <halflife>
+#include <tf2>
+
 int port
 char localip[64]
 char authstr[64]
@@ -22,26 +25,27 @@ new Handle:g_hChilds
 #include "events/PlayerConnect.sp"
 #include "events/PlayerDisconnect.sp"
 
-#include "messages/FetchPlayer.sp"
-#include "messages/FetchPlayers.sp"
-#include "messages/FetchServer.sp"
-#include "messages/KickPlayer.sp"
-#include "messages/PlayerCenterHint.sp"
-#include "messages/PlayerCenterHintAll.sp"
-#include "messages/PlayerChat.sp"
-#include "messages/PlayerChatAll.sp"
-#include "messages/PlayerHint.sp"
-#include "messages/PlayerHintAll.sp"
-#include "messages/PlaySound.sp"
-#include "messages/PlaySoundAll.sp"
-//#include "messages/Pong.sp"
-#include "messages/PrintToServer.sp"
-#include "messages/ServerCommand.sp"
-#include "messages/SetNextMap.sp"
-#include "messages/SetMap.sp"
-#include "messages/SetPlayerRendering.sp"
-#include "messages/SlapPlayer.sp"
-#include "messages/TeleportPlayer.sp"
+#include "messages/source/FetchPlayer.sp"
+#include "messages/source/FetchPlayers.sp"
+#include "messages/source/FetchServer.sp"
+#include "messages/source/KickPlayer.sp"
+#include "messages/source/PlayerCenterHint.sp"
+#include "messages/source/PlayerCenterHintAll.sp"
+#include "messages/source/PlayerChat.sp"
+#include "messages/source/PlayerChatAll.sp"
+#include "messages/source/PlayerHint.sp"
+#include "messages/source/PlayerHintAll.sp"
+#include "messages/source/PlaySound.sp"
+#include "messages/source/PlaySoundAll.sp"
+//#include "messages/source/Pong.sp"
+#include "messages/source/PrintToServer.sp"
+#include "messages/source/ServerCommand.sp"
+#include "messages/source/SetNextMap.sp"
+#include "messages/source/SetMap.sp"
+#include "messages/source/SetPlayerRendering.sp"
+#include "messages/source/SlapPlayer.sp"
+#include "messages/source/TeleportPlayer.sp"
+
 #include "messages/tf2/RegeneratePlayer.sp"
 
 #include "websocket/WebsocketPing.sp"
