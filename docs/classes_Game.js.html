@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Tutorial: Client Installation - SourceMod.JS Documentation</title>
+    <title>classes/Game.js - SourceMod.JS Documentation</title>
     
     <meta name="description" content="A JavaScript wrapper over SourceMod." />
     
@@ -46,34 +46,44 @@
 
 <div id="main">
     
-    <h1 class="page-title">Tutorial: Client Installation</h1>
+    <h1 class="page-title">classes/Game.js</h1>
     
 
+    
+
+
+
+    
     <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @typedef Games
+ * @property {string} None
+ * @property {string} TeamFortress2
+ */
+export const Games = {
+	None: "None",
+	TeamFortress2: "TeamFortress2"
+}
 
-<header>
-    
+export class Game {
+	constructor(type) {
+		this.type = type ?? Games.None
+	}
 
-    <h2>Client Installation</h2>
-</header>
+	serverModifier(server) {
+		return server
+	}
 
-<article>
-    <p>Please make sure you've completed the basic <a href="tutorial-Installation.html">Installation</a> and the <a href="tutorial-InstallationServer.html">Server Installation</a> before reading this part!</p>
-<p>In this part of the installation, we're going to install the sourcemod.js NPM module! Thankfully, it's much easier than the server installation.</p>
-<h2>Installation</h2>
-<p>Go to the folder you'd like to install sourcemod.js to, and run the following command:</p>
-<pre class="prettyprint source"><code>npm install sourcemod.js
-</code></pre>
-<p>All the neccessary modules should be installed into the <code>node_modules</code> folder. You can use the following to require it:</p>
-<pre class="prettyprint source lang-js"><code>import { Server } from &quot;sourcemod.js&quot; // ES2016
-</code></pre>
-<pre class="prettyprint source lang-js"><code>const { Server } = require(&quot;sourcemod.js&quot;) // CJS
-</code></pre>
-<p>And that's it! sourcemod.js has successfully been installed. You can start writing plugins in JavaScript!</p>
-<p>While the connection via WebSockets technically allows you to remotely control a SourceMod server using the plugin, it's ideal to have the server and the sourcemod.js plugin running on the same computer (or network) to minimize latency.</p>
-</article>
+	playerModifier(player) {
+		return player
+	}
+}</code></pre>
+        </article>
+    </section>
 
-</section>
+
+
 
     
     

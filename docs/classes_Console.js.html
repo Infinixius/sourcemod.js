@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Tutorial: Client Installation - SourceMod.JS Documentation</title>
+    <title>classes/Console.js - SourceMod.JS Documentation</title>
     
     <meta name="description" content="A JavaScript wrapper over SourceMod." />
     
@@ -46,34 +46,65 @@
 
 <div id="main">
     
-    <h1 class="page-title">Tutorial: Client Installation</h1>
+    <h1 class="page-title">classes/Console.js</h1>
     
 
+    
+
+
+
+    
     <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import EventEmitter from "events"
+import { Messages, Events } from "./Socket.js"
 
-<header>
-    
+/**
+ * Object for managing, sending, and receiving messages from the server's console.
+ * 
+ * Accessable from a `Server` object via `Server.console`.
+ * 
+ * @class
+ * @property {object} Server - The Server object this belongs to.
+ */
+export class Console extends EventEmitter {
+	/**
+	 * @constructor
+	 * @param {object} server - The server this belongs to.
+	 */
+	constructor (server) {
+		super()
+		this.server = server
+	}
 
-    <h2>Client Installation</h2>
-</header>
+	/**
+	 * Prints a message to the server's console.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/PrintToServer)
+	 * 
+	 * @function
+	 * @param {string} message - The message to be printed.
+	 */
+	async print(message) {
+		return await this.server.socket.send(Messages.PrintToServer, message)
+	}
 
-<article>
-    <p>Please make sure you've completed the basic <a href="tutorial-Installation.html">Installation</a> and the <a href="tutorial-InstallationServer.html">Server Installation</a> before reading this part!</p>
-<p>In this part of the installation, we're going to install the sourcemod.js NPM module! Thankfully, it's much easier than the server installation.</p>
-<h2>Installation</h2>
-<p>Go to the folder you'd like to install sourcemod.js to, and run the following command:</p>
-<pre class="prettyprint source"><code>npm install sourcemod.js
-</code></pre>
-<p>All the neccessary modules should be installed into the <code>node_modules</code> folder. You can use the following to require it:</p>
-<pre class="prettyprint source lang-js"><code>import { Server } from &quot;sourcemod.js&quot; // ES2016
-</code></pre>
-<pre class="prettyprint source lang-js"><code>const { Server } = require(&quot;sourcemod.js&quot;) // CJS
-</code></pre>
-<p>And that's it! sourcemod.js has successfully been installed. You can start writing plugins in JavaScript!</p>
-<p>While the connection via WebSockets technically allows you to remotely control a SourceMod server using the plugin, it's ideal to have the server and the sourcemod.js plugin running on the same computer (or network) to minimize latency.</p>
-</article>
+	/**
+	 * Runs a command as if it were executed on the server console (or RCON).
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/ServerCommand)
+	 * 
+	 * @function
+	 * @param {string} command - The command to be ran.
+	 */
+	async command(command) {
+		return await this.server.socket.send(Messages.ServerCommand, command)
+	}
+}</code></pre>
+        </article>
+    </section>
 
-</section>
+
+
 
     
     

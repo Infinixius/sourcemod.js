@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>classes/Player.js - SourceMod.JS Documentation</title>
+    
+    <meta name="description" content="A JavaScript wrapper over SourceMod." />
+    
+        <meta name="keywords" content="sourcemod, sourcemod.js" />
+        <meta name="keyword" content="sourcemod, sourcemod.js" />
+    
+    
+    
+    <meta property="og:title" content="SourceMod.JS Documentation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://sourcemod.js.org/assets/socialpreview.png"/>
+    <meta property="og:site_name" content="SourceMod.JS Documentation"/>
+    <meta property="og:url" content="https://sourcemod.js.org"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Infinixius/sourcemod.js" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h2><a href="https://www.npmjs.com/package/sourcemod.js" target="_blank" class="menu-item" id="npm_link" >NPM</a></h2><h3>Classes</h3><ul><li><a href="Console.html">Console</a><ul class='methods'><li data-type='method'><a href="Console.html#command">command</a></li><li data-type='method'><a href="Console.html#print">print</a></li></ul></li><li><a href="Player.html">Player</a><ul class='methods'><li data-type='method'><a href="Player.html#centerHint">centerHint</a></li><li data-type='method'><a href="Player.html#chat">chat</a></li><li data-type='method'><a href="Player.html#fetch">fetch</a></li><li data-type='method'><a href="Player.html#hint">hint</a></li><li data-type='method'><a href="Player.html#kick">kick</a></li><li data-type='method'><a href="Player.html#playSound">playSound</a></li><li data-type='method'><a href="Player.html#regenerate">regenerate</a></li><li data-type='method'><a href="Player.html#resetRendering">resetRendering</a></li><li data-type='method'><a href="Player.html#setRendering">setRendering</a></li><li data-type='method'><a href="Player.html#slap">slap</a></li><li data-type='method'><a href="Player.html#teleport">teleport</a></li><li data-type='method'><a href="Player.html#update">update</a></li></ul></li><li><a href="Players.html">Players</a><ul class='methods'><li data-type='method'><a href="Players.html#broadcast">broadcast</a></li><li data-type='method'><a href="Players.html#broadcastCenterHint">broadcastCenterHint</a></li><li data-type='method'><a href="Players.html#broadcastHint">broadcastHint</a></li><li data-type='method'><a href="Players.html#broadcastSound">broadcastSound</a></li><li data-type='method'><a href="Players.html#fetch">fetch</a></li><li data-type='method'><a href="Players.html#get">get</a></li></ul></li><li><a href="Server.html">Server</a><ul class='methods'><li data-type='method'><a href="Server.html#connect">connect</a></li><li data-type='method'><a href="Server.html#disconnect">disconnect</a></li><li data-type='method'><a href="Server.html#fetch">fetch</a></li><li data-type='method'><a href="Server.html#setMap">setMap</a></li><li data-type='method'><a href="Server.html#setNextMap">setNextMap</a></li></ul></li><li><a href="Socket.html">Socket</a><ul class='methods'><li data-type='method'><a href="Socket.html#disconnect">disconnect</a></li><li data-type='method'><a href="Socket.html#send">send</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Configuration.html">Configuration</a></li><li><a href="tutorial-Installation.html">Installation</a></li><li><a href="tutorial-Roadmap.html">Roadmap</a></li><li><a href="tutorial-SoundsCSGO.html">Sounds - Counter-Strike: Global Offensive</a></li><li><a href="tutorial-SoundsHL2.html">Sounds - Half-Life 2</a></li><li><a href="tutorial-SoundsTF2.html">Sounds - Team Fortress 2</a></li><li><a href="tutorial-Troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkBytes">checkBytes</a></li><li><a href="global.html#DisconnectReasons">DisconnectReasons</a></li><li><a href="global.html#EngineVersion">EngineVersion</a></li><li><a href="global.html#Events">Events</a></li><li><a href="global.html#Games">Games</a></li><li><a href="global.html#Messages">Messages</a></li><li><a href="global.html#randArray">randArray</a></li><li><a href="global.html#randInt">randInt</a></li><li><a href="global.html#range">range</a></li><li><a href="global.html#RenderEffects">RenderEffects</a></li><li><a href="global.html#RenderModes">RenderModes</a></li><li><a href="global.html#uid">uid</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">classes/Player.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import EventEmitter from "events"
+import { Events, Messages } from "./Socket.js"
+import { checkBytes } from "./Utilities.js"
+
+/**
+ * Object representing a player currently connected to the server.
+ * @class
+ * @property {object} players - The `Players` object this belongs to.
+ * @property {bool} partial - Whether this object is partial or not. Partial objects are only guaranteed to contain the `id` property.
+ * @property {number} id - ID of the player.
+ * @property {string} authid - SteamID of the player.
+ * @property {string} name - Name of the player.
+ * @property {string} ip - IP address of the player. (without the port)
+ * @property {number} health - Amount of health the player has.
+ * @property {number} gravity - Gravity of the player.
+ * @property {string} weapon - The current weapon the player has equipped. (Example: `tf_weapon_scattergun`)
+ * @property {number} kills - Amount of kills the player currently has.
+ * @property {number} deaths - Amount of deaths the player currently has.
+ * @property {number} team - Team index of the player. Keep in mind that this is a generic response from the engine and not the game, and the game-specific `Player.getTeam()` should be used instead.
+ * @property {number} connectionTime - The amount of time (in seconds) the player has been connected to the server. Will be 0 if the player is a bot/fake.
+ * @property {object} render - Rendering information about the player (effects, color, etc).
+ * @property {object} render.color - Rendering color information
+ * @property {number} render.color.r - Rendering color (red 0-255)
+ * @property {number} render.color.g - Rendering color (green 0-255)
+ * @property {number} render.color.b - Rendering color (blue 0-255)
+ * @property {number} render.color.a - Rendering color (alpha 0-255)
+ * @property {number} render.effect - Rendering effect
+ * @property {number} render.mode - Rendering mode
+ */
+ export class Player extends EventEmitter {
+	/**
+	 * @constructor
+	 * @param {string} players - The `Players` object this belongs to.
+	 * @param {object} data - Player data sent from the server.
+	 * @param {bool} partial - Whether this object is partial or not. Defaults to false.
+	 */
+	constructor (players, data, partial) {
+		super()
+		this.players = players
+		this.partial = partial ?? false
+
+		this.update(data)
+		this.players.server.game.playerModifier(this)
+
+		this.players.on("chat", (plr, message, team) => {
+			if (plr.id != this.id) return
+			/**
+			 * Fires when this player sends a chat message.
+			 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/console/OnClientSayCommand)
+			 * 
+			 * @event Player#chat
+			 * @param {string} message - Content of the chat message.
+			 * @param {bool} team - True if the chat message was a team message, and false otherwise.
+			 */
+			this.emit("chat", message, team)
+		})
+	}
+
+	/**
+	 * Fetches information about this player from the server. Keep in mind that you must run this function to keep this player up-to-date. Similar to `Players.fetch()`
+	 * @function
+	 * @returns {Object} The new player object with fetched information.
+	 */
+	async fetch() {
+		if (this.players.server.socket == undefined) return
+		await this.players.server.socket.send(Messages.FetchPlayer, this.id)
+		return this
+	}
+
+	/**
+	 * Updates the player with new information from `Player.fetch()`. Used internally.
+	 * @function
+	 * @returns {Object} The new player object with fetched information.
+	 */
+	update(data) {
+		this.id = data.id ?? 0
+		this.authid = data.authid ?? ""
+		this.name = data.name ?? ""
+		this.ip = data.ip ?? ""
+		this.health = data.health ?? 1
+		this.weapon = data.weapon ?? ""
+		this.gravity = data.gravity ?? 0
+		this.kills = data.kills ?? 0
+		this.deaths = data.deaths ?? 0
+		this.team = data.team ?? 0
+		this.connectionTime = Math.round(data.connectionTime) ?? 0
+		this.connectionTimeMinutes = Math.round(data.connectionTime / 60 )?? 0
+
+		this.render = {
+			color: {
+				r: data.colorr ?? 255,
+				g: data.colorg ?? 255,
+				b: data.colorb ?? 255,
+				a: data.colora ?? 255
+			},
+			effect: data.rendereffect ?? 0,
+			mode: data.rendermode ?? 0
+		}
+
+		return this
+	}
+
+	/**
+	 * Kicks a player from the server.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/clients/KickClient)
+	 * 
+	 * @function
+	 * @param {string} reason - The reason for the kick. Cannot exceed 256 bytes.
+	 */
+	kick(reason) {
+		return this.players.server.socket.send(Messages.KickPlayer, {
+			id: this.id,
+			reason: reason
+		})
+	}
+
+	/**
+	 * Sends a message to a player's chatbox. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintToChat)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	chat(message) {
+		if (checkBytes(message, 256)) return
+		return this.players.server.socket.send(Messages.PlayerChat, {
+			id: this.id,
+			message: message
+		})
+	}
+
+	/**
+	 * Sends a message to a player's hint box. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintHintText)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	hint(message) {
+		if (checkBytes(message, 256)) return
+		return this.players.server.socket.send(Messages.PlayerHint, {
+			id: this.id,
+			message: message
+		})
+	}
+
+	/**
+	 * Sends a message to a player's center hint box. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/halflife/PrintCenterText)
+	 * 
+	 * @function
+	 * @param {string} message - The message to send.
+	 */
+	centerHint(message) {
+		if (checkBytes(message, 256)) return
+		return this.players.server.socket.send(Messages.PlayerCenterHint, {
+			id: this.id,
+			message: message
+		})
+	}
+
+	/**
+	 * Plays a sound. The file path must be a game sound from `scripts/game_sound.txt` or `sound_misc_dir.vpk`. Cannot exceed 256 bytes.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/sdktools_sound/EmitGameSoundToClient)
+	 * 
+	 * @function
+	 * @param {string} path - File path to the sound
+	 */
+	playSound(path) {
+		if (checkBytes(path, 256)) return
+		return this.players.server.socket.send(Messages.PlaySound, {
+			id: this.id,
+			path: path
+		})
+	}
+
+	/**
+	 * Teleports a player to another player.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/sdktools_functions/TeleportEntity)
+	 * 
+	 * @function
+	 * @param {Object} player - The player to teleport to.
+	 */
+	teleport(player) {
+		return this.players.server.socket.send(Messages.TeleportPlayer, {
+			to: player.id,
+			from: this.id
+		})
+	}
+
+	/**
+	 * Slaps the player, with an optional amount of damage.
+	 * [SourceMod API Reference](https://sm.alliedmods.net/new-api/sdktools_functions/SlapPlayer)
+	 * 
+	 * @function
+	 * @param {number} damage - The amount of damage to deal. Defaults to 0.
+	 */
+	slap(damage) {
+		return this.players.server.socket.send(Messages.SlapPlayer, {
+			id: this.id,
+			damage: damage ?? 0
+		})
+	}
+
+	/**
+	 * Updates the player's rendering, such as the color and render effects/modes. Every argument is optional, and won't change the value if not provided.
+	 * [SourceMod API Reference (SetEntityRenderColor)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderColor)
+	 * [SourceMod API Reference (SetEntityRenderFx)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderFx)
+	 * [SourceMod API Reference (SetEntityRenderMode)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderMode)
+	 * 
+	 * @function
+	 * @param {number} r - Rendering color (red 0-255)
+	 * @param {number} g - Rendering color (green 0-255)
+	 * @param {number} b - Rendering color (blue 0-255)
+	 * @param {number} a - Rendering color (alpha 0-255)
+	 * @param {number} effect - Rendering effect
+	 * @param {number} mode - Rendering mode
+	 */
+	setRendering(r, g, b, a, effect, mode) {
+		return this.players.server.socket.send(Messages.SetPlayerRendering, {
+			id: this.id,
+			r: r ?? this.render.color.r,
+			g: g ?? this.render.color.g,
+			b: b ?? this.render.color.b,
+			a: a ?? this.render.color.a,
+			effect: effect ?? this.render.effect,
+			mode: mode ?? this.render.mode
+		})
+	}
+
+	/**
+	 * Resets the player's rendering color/effect/mode.
+	 * [SourceMod API Reference (SetEntityRenderColor)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderColor)
+	 * [SourceMod API Reference (SetEntityRenderFx)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderFx)
+	 * [SourceMod API Reference (SetEntityRenderMode)](https://sm.alliedmods.net/new-api/entity_prop_stocks/SetEntityRenderMode)
+	 * 
+	 * @function
+	 */
+	 resetRendering() {
+		return this.setRendering(255, 255, 255, 255, 0, 0)
+	}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed May 04 2022 17:25:38 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+    <link type="text/css" rel="stylesheet" href="../jsdoc.mod.css">
+    
+</body>
+</html>

@@ -23,6 +23,7 @@
         "readme": "README.md"
     },
 	"docdash": {
+		"scripts": ["../jsdoc.mod.css"],
 		"search": true,
 		"typedefs": true,
 		"menu": {
