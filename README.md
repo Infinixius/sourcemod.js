@@ -2,7 +2,9 @@
 <img src="https://infinixi.us/sourcemod.js/assets/logo_shadow.png">
 </p>
 
-![npm](https://img.shields.io/npm/v/sourcemod.js)
+![npm](https://img.shields.io/npm/v/sourcemod.js?color=red&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTA0IiBoZWlnaHQ9IjEwNCIgdmlld0JveD0iMCAwIDEwNCAxMDQiPgogIDxpbWFnZSB4PSIyIiB5PSIyIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeGxpbms6aHJlZj0iZGF0YTppbWcvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBR1FBQUFCa0NBWUFBQUJ3NHBWVUFBQUJSa2xFUVZSNG5PM2RRUXFETUFBQVFaWCsvOHNXV2l6MlZpalJGV2R1Z21ESUVnOUJ6THl1NjdUemRjRmg1dTFCaXhnSm43bmZnb2h4dmxlRFJZeVVkYm5RWUc5QmtCaEJZZ1NKRVNSR2tCaEJZZ1NKRVNSR2tCaEJZZ1NKRVNSR2tCaEJZZ1NKRVNSR2tCaEJZaDREaHpQL2NNK1ZEZmtXd1FxSkVTUkdrQmhCWWdTSkVTUkdrQmhCWWdTSkVTUkdrQmhCWWtadUxoN3RuODIrekVhb0ZSSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTSXdnTVlMRUNCSWpTTXpJWDJ0YzZZemR6Rml0a0JoQllnU0pFU1JHa0JoQllnU0pFU1JHa0JoQllnU0pFU1JHa0JoQllnU0pFU1JHa0pqbEJpZHlYc204clJCUnp2ZHFzSDlsaVhLZTk5eFAwL1FFbmp3T3lZMkJCZndBQUFBQVNVVk9SSzVDWUlJPSIvPgo8L3N2Zz4K)
+![github](https://img.shields.io/github/stars/Infinixius/sourcemod.js?color=yellow&logo=github)
+![downloads](https://img.shields.io/npm/dw/sourcemod.js?color=blue&logo=gitlfs&logoColor=white)
 
 A JavaScript wrapper over SourceMod.
 
@@ -47,3 +49,12 @@ Other than that, feel free to contribute! Bugfixes, new features, or just better
 # License
 
 This project is under the [MIT License](https://mit-license.org/). This allows you to use, modify, and distribute the source code as long as you include the license.
+
+This project also makes use of the following libraries and/or projects:
+
+- [smlib](https://github.com/bcserv/smlib)
+- [sm-json](https://github.com/clugg/sm-json)
+- [sm-websocket](https://github.com/peace-maker/sm-websocket)
+- [SourceMod Sockets](https://forums.alliedmods.net/showthread.php?t=67640)
+
+- [ws](https://github.com/websockets/ws)

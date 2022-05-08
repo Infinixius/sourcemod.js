@@ -1,0 +1,8 @@
+.vscode
+docs
+node_modules
+plugin
+test
+
+CNAME
+jsdoc.json
