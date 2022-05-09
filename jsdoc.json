@@ -23,7 +23,7 @@
         "readme": "README.md"
     },
 	"docdash": {
-		"scripts": ["https://sourcemod.js.org/styles/jsdoc.mod.css"],
+		"scripts": ["https://sourcemod.js.org/styles/jsdoc.mod.css","https://www.googletagmanager.com/gtag/js?id=G-8EHJ97NV4L","https://sourcemod.js.org/styles/jsdoc.mod.js"],
 		"search": true,
 		"typedefs": true,
 		"menu": {
