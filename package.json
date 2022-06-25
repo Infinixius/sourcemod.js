@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/infinixius/sourcemod.js.git"
   },
-  "publishConfig": {
-	"infinixius:registry": "https://npm.pkg.github.com"
-  },
   "author": "infinixius",
   "license": "MIT",
   "bugs": {
