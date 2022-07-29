@@ -14,6 +14,8 @@ The easiest way to change these ConVars is to add them to the launch options of 
 srcds.exe +smjs_port 12345 +smjs_auth CustomAuthString +smjs_debug 0
 ```
 
+Keep in mind that for security reasons, you cannot change these while the server is running.
+
 ## Client Configuration
 
 sourcemod.js on the client is configured when connecting to a server:

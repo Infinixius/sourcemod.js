@@ -2,7 +2,7 @@
 docs
 node_modules
 plugin
-test
 
 CNAME
 jsdoc.json
+jsdoc.mod.css

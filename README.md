@@ -8,25 +8,28 @@
 
 A JavaScript wrapper over SourceMod.
 
-[SourceMod](https://www.sourcemod.net/) is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. SourceMod allows you to write plugins that modify the game in all sorts of ways, while SourceMod.JS lets you write plugins or custom server logic in JavaScript (instead of SourcePawn, the complicated language SourceMod uses), then interface with a SourceMod server via WebSockets.
+[SourceMod](https://www.sourcemod.net/) by itself is a modification to Source servers, such as Team Fortress 2 and Counter-Strike: Global Offensive. It allows you to write plugins that modify the game in all sorts of ways, from new gamemodes, to simple administration plugins. SourceMod.JS is a wrapper over SourceMod that lets you write plugins or custom server logic in JavaScript.
+
+The JavaScript side (where you write your code) interfaces with an actual SourceMod server (where you install the plugin), via [WebSockets](https://en.wikipedia.org/wiki/WebSocket). This effectively allows you to wirelessly control a server over the internet, but it is heavily recommended to host the SourceMod.JS plugin on the same machine (or network) as the actual SourceMod server, to reduce latency.
 
 ```
 npm install sourcemod.js
 ```
 
 ```js
-import { Server } from "sourcemod.js"
+import { Server } from "../index.js"
 
-const server = await new Server("ws://localhost:12345")
+const server = new Server("ws://localhost:12345", { auth: "admin" })
 server.connect()
 
 server.on("ready", async () => {
 	console.log("Connected!")
-	server.players.on("connect", (player) => {
-		console.log(`${player.name} connected!`)
+
+	server.players.on("connect", (id, name) => {
+		console.log(`${name} connected!`)
 	})
-	server.players.on("disconnect", (player) => {
-		console.log(`${player.name} disconnected!`)
+	server.players.on("disconnect", (id, name) => {
+		console.log(`${name} disconnected!`)
 	})
 })
 
@@ -46,6 +49,8 @@ Currently, the only supported and tested game server is Team Fortress 2. If you'
 
 Other than that, feel free to contribute! Bugfixes, new features, or just better code in general are all greatly appreciated!
 
+If you need help at any point, please feel free to contact me! You can find all of my links at [https://infinixi.us](https://infinixi.us), and my Discord is **infinixius#5875**. You can also ask for help on the [issues](https://github.com/Infinixius/sourcemod.js/issues) page.
+
 # License
 
 This project is under the [MIT License](https://mit-license.org/). This allows you to use, modify, and distribute the source code as long as you include the license.
@@ -58,3 +63,5 @@ This project also makes use of the following libraries and/or projects:
 - [SourceMod Sockets](https://forums.alliedmods.net/showthread.php?t=67640)
 
 - [ws](https://github.com/websockets/ws)
+
+Big thanks to [punteroo](https://github.com/punteroo) for helping with the `GiveWeapon` code!

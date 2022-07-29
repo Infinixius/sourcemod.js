@@ -1,3 +1,5 @@
+/* This file is from https://github.com/bcserv/smlib/! */
+
 #if defined _smlib_crypt_included
 	#endinput
 #endif
