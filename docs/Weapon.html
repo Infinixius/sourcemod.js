@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Socket - SourceMod.JS Documentation</title>
+    <title>Weapon - SourceMod.JS Documentation</title>
     
     <meta name="description" content="A JavaScript wrapper over SourceMod." />
     
@@ -46,7 +46,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Socket</h1>
+    <h1 class="page-title">Weapon</h1>
     
 
     
@@ -59,12 +59,10 @@
 <header>
     
         <h2>
-        Socket
+        Weapon
         </h2>
         
-            <div class="class-description usertext"><p>Object for sending and receiving messages the raw WebSocket.
-It is not recommended to use this object in your code, as it is used internally.</p>
-<p>Accessable from a <code>Server</code> object via <code>Server.socket</code>.</p></div>
+            <div class="class-description usertext"><p>Object representing a weapon. Team Fortress 2 only!</p></div>
         
     
 </header>
@@ -79,7 +77,7 @@ It is not recommended to use this object in your code, as it is used internally.
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Socket"><span class="type-signature"></span>new Socket<span class="signature">(server, host)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Weapon"><span class="type-signature"></span>new Weapon<span class="signature">(id, classname, slot, preserveattributes, level, quality)</span><span class="type-signature"> &rarr; {any}</span></h4>
 
     
 
@@ -91,7 +89,7 @@ It is not recommended to use this object in your code, as it is used internally.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line32">line 32</a>
+        <a href="Weapon.js.html">Weapon.js</a>, <a href="Weapon.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -125,150 +123,6 @@ It is not recommended to use this object in your code, as it is used internally.
 
     
 </dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>host</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The host WebSocket address. Example: <code>ws://localhost:5050</code></p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>connected</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">bool</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Will be true if the server is connected to the WebSocket, and false otherwise.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>server</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The <code>Server</code> object this belongs to.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ws</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The WebSocket class provided by the <code>ws</code> module. Used for actually sending and receiving messages.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>acknowledgements</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>List of acknowledgements received from the server. Used to recognize when the server successfully processes a message.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
 
 
 
@@ -309,13 +163,13 @@ It is not recommended to use this object in your code, as it is used internally.
 
         <tr>
             
-                <td class="name"><code>server</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Server.html">Server</a></span>
+<span class="param-type">number</span>
 
 
             
@@ -325,14 +179,14 @@ It is not recommended to use this object in your code, as it is used internally.
 
             
 
-            <td class="description last"><p>The <code>Server</code> object this belongs to.</p></td>
+            <td class="description last"><p>Index of the weapon in items_game.txt</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>host</code></td>
+                <td class="name"><code>classname</code></td>
             
 
             <td class="type">
@@ -348,7 +202,99 @@ It is not recommended to use this object in your code, as it is used internally.
 
             
 
-            <td class="description last"><p>Websocket address. Example: <code>ws://localhost:5050</code></p></td>
+            <td class="description last"><p>Classname of the weapon in items_game.txt</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>slot</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Slot of the weapon. Should be 1-5</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>preserveattributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Whether to preserve the normal weapon's attributes or not.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Level 1-100 of the weapon.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>quality</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Quality of the weapon.</p></td>
         </tr>
 
     
@@ -370,6 +316,24 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">any</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -399,7 +363,7 @@ It is not recommended to use this object in your code, as it is used internally.
 
     
 
-    <h4 class="name" id="disconnect"><span class="type-signature"></span>disconnect<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addAttribute"><span class="type-signature"></span>addAttribute<span class="signature">(id, value)</span><span class="type-signature"></span></h4>
 
     
 
@@ -411,7 +375,7 @@ It is not recommended to use this object in your code, as it is used internally.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line166">line 166</a>
+        <a href="Weapon.js.html">Weapon.js</a>, <a href="Weapon.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -451,94 +415,8 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 <div class="description usertext">
-    <p>Disconnects from the WebSocket.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(type, message)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line140">line 140</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Sends a raw message to the WebSocket</p>
+    <p>Function that adds an attribute to a item.
+You can find a giant list of all possible attributes at the <a href="https://wiki.teamfortress.com/wiki/List_of_item_attributes">TF2 Wiki</a>.</p>
 </div>
 
 
@@ -576,13 +454,13 @@ It is not recommended to use this object in your code, as it is used internally.
 
         <tr>
             
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -592,20 +470,20 @@ It is not recommended to use this object in your code, as it is used internally.
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>ID of the attribute.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">any</span>
 
 
             
@@ -615,7 +493,7 @@ It is not recommended to use this object in your code, as it is used internally.
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A number or a boolean representing the value of the attribute.</p></td>
         </tr>
 
     
@@ -635,25 +513,29 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 
-
-
-
-
+<h5>Throws:</h5>
 
         
+
+    <div class="param-desc usertext">
     
+        <p>Will throw an error if the weapon already has 16 attributes or more. This is a limitation of TF2 itself.</p>
+    
+    </div>
+
 
     
 
-    
-        <h3 class="subsection-title">Events</h3>
+
+
+
 
         
             
 
     
 
-    <h4 class="name" id="event:disconnect">disconnect</h4>
+    <h4 class="name" id="setAustralium"><span class="type-signature"></span>setAustralium<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -665,7 +547,7 @@ It is not recommended to use this object in your code, as it is used internally.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line171">line 171</a>
+        <a href="Weapon.js.html">Weapon.js</a>, <a href="Weapon.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -705,7 +587,8 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 <div class="description usertext">
-    <p>Fired when the WebSocket disconnects.</p>
+    <p>Turn the weapon into an australium if it can become one.
+Keep in mind this method internally calls <code>addAttribute</code>, and as such will throw if 16 attributes are exceeded.</p>
 </div>
 
 
@@ -730,6 +613,18 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc usertext">
+    
+        <p>Will throw an error if the weapon cannot be Australium.</p>
+    
+    </div>
+
+
+    
 
 
 
@@ -740,7 +635,7 @@ It is not recommended to use this object in your code, as it is used internally.
 
     
 
-    <h4 class="name" id="event:error">error</h4>
+    <h4 class="name" id="setFestivized"><span class="type-signature"></span>setFestivized<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -752,7 +647,7 @@ It is not recommended to use this object in your code, as it is used internally.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line48">line 48</a>
+        <a href="Weapon.js.html">Weapon.js</a>, <a href="Weapon.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -792,416 +687,8 @@ It is not recommended to use this object in your code, as it is used internally.
 
 
 <div class="description usertext">
-    <p>Used internally for when the WebSocket experiences an error.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>error</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Error</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The error that occured.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="event:event">event</h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line80">line 80</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Used internally for when a raw event is received from the server.
-It isn't recommended to use this event in your code.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>json</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The message data sent by the server.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="event:raw">raw</h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line66">line 66</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Fired when a WebSocket packet is received.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Buffer</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Raw data sent by the server.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="event:ready">ready</h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Socket.js.html">Socket.js</a>, <a href="Socket.js.html#line58">line 58</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Fired when the connection to the server has been established.</p>
+    <p>If the weapon can be festivized, add the attribute for turning it into one.
+Keep in mind this method internally calls <code>addAttribute</code>, and as such will throw if 16 attributes are exceeded.</p>
 </div>
 
 
@@ -1226,12 +713,28 @@ It isn't recommended to use this event in your code.</p>
 
 
 
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc usertext">
+    
+        <p>Will throw an error if the weapon cannot be festivized.</p>
+    
+    </div>
+
+
+    
 
 
 
 
 
         
+    
+
+    
+
     
 </article>
 

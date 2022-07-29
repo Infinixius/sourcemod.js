@@ -4,7 +4,7 @@
         "dictionaries": ["jsdoc", "closure"]
     },
     "source": {
-        "include": ["src"],
+        "include": ["dist"],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
@@ -23,8 +23,9 @@
         "readme": "README.md"
     },
 	"docdash": {
-		"scripts": ["https://sourcemod.js.org/styles/jsdoc.mod.css","https://www.googletagmanager.com/gtag/js?id=G-8EHJ97NV4L","https://sourcemod.js.org/scripts/jsdoc.mod.js"],
+		"scripts": ["https://sourcemod.js.org/styles/jsdoc.mod.css"],
 		"search": true,
+		"private": false,
 		"typedefs": true,
 		"menu": {
             "GitHub": {
@@ -44,6 +45,7 @@
 			"Classes",
 			"Modules",
 			"Externals",
+			"Typedefs",
 			"Namespaces",
 			"Mixins",
 			"Tutorials",
