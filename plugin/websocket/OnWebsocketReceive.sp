@@ -28,12 +28,16 @@ public OnWebsocketReceive(WebsocketHandle:websocket, WebsocketSendType:iType, co
 }
 
 public CheckAuthorization(const String:auth[], WebsocketHandle:websocket) {
-	if (!StrEqual(auth, authstr)) {
+	char output[64];
+
+	Crypt_MD5(auth, output, sizeof(output));
+
+	if (!StrEqual(output, authstr)) {
 		PrintToServer("[SMJS] Client #%i failed to authenticate! Attempted auth string: %s", websocket, auth)
 
 		TerminateWebsocket(websocket, "Unauthorized")
 	}
-	return StrEqual(auth, authstr)
+	return StrEqual(output, authstr)
 }
 
 public Acknowledge(const String:ack[], WebsocketHandle:websocket) {
@@ -90,5 +94,9 @@ public void HandleMessage(const String:type[], const String:message[], const JSO
 		Message_SetPlayerRendering(type, message, jsondata, websocket)
 	} else if (StrEqual(type, "TF2_RegeneratePlayer")) {
 		Message_RegeneratePlayer(type, message, jsondata, websocket)
+	} else if (StrEqual(type, "TF2_GiveWeapon")) {
+		Message_GiveWeapon(type, message, jsondata, websocket)
+	} else if (StrEqual(type, "TF2_ApplyCondition")) {
+		Message_ApplyCondition(type, message, jsondata, websocket)
 	}
 }
