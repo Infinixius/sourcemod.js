@@ -2,6 +2,7 @@ import EventEmitter from "events"
 import { Events, Messages } from "./Socket.js"
 import { Player } from "./Player.js"
 import { checkBytes } from "./Utilities.js"
+import { Server } from "./Server.js"
 
 /**
  * Object for interacting with players.
@@ -10,25 +11,29 @@ import { checkBytes } from "./Utilities.js"
  * @property {Map} players - List of players mapped by their ID.
  */
  export class Players extends EventEmitter {
+	server: Server
+	players: Map<number, Player>
+	id: any
+
 	/**
 	 * @constructor
-	 * @param {object} server - The server this belongs to.
+	 * @param {Server} server - The server this belongs to.
 	 */
-	constructor (server) {
+	constructor (server: Server) {
 		super()
 		this.server = server
 		this.players = new Map()
 
 		this.server.on("ready", () => {
-			this.server.socket.on(Events.PlayerUpdate, (message) => {
+			this.server.socket?.on(Events.PlayerUpdate, (message) => {
 				var data = message.message
 				if (this.players.get(data.id)) {
-					this.players.get(data.id).update(data)
+					this.players.get(data.id)?.update(data)
 				} else {
 					this.players.set(data.id, new Player(this, data))
 				}
 			})
-			this.server.socket.on(Events.PlayerConnect, (playerdata) => {
+			this.server.socket?.on(Events.PlayerConnect, (playerdata) => {
 				/**
 				 * Fires when a player connects to the server. Make sure to fetch with `Players.fetch()` before interacting with players.
 				 * [SourceMod API Reference](https://wiki.alliedmods.net/Generic_Source_Server_Events#player_connect)
@@ -41,14 +46,14 @@ import { checkBytes } from "./Utilities.js"
 				 * @param {bool} bot - Will be true if this player is a TFBot (or otherwise not a human player), or false if otherwise.
 				 */
 				this.emit("connect",
-					playerdata.userid,
-					playerdata.name,
-					playerdata.ip,
-					playerdata.networkid,
-					playerdata.bot
+					playerdata.message.userid,
+					playerdata.message.name,
+					playerdata.message.ip,
+					playerdata.message.networkid,
+					playerdata.message.bot
 				)
 			})
-			this.server.socket.on(Events.PlayerDisconnect, (playerdata) => {
+			this.server.socket?.on(Events.PlayerDisconnect, (playerdata) => {
 				/**
 				 * Fires when a player disconnects to the server. Make sure to fetch with `Players.fetch()` before interacting with players.
 				 * [SourceMod API Reference](https://wiki.alliedmods.net/Generic_Source_Server_Events#player_connect)
@@ -61,14 +66,14 @@ import { checkBytes } from "./Utilities.js"
 				 * @param {bool} bot - Will be true if this player is a TFBot (or otherwise not a human player), or false if otherwise.
 				 */
 				this.emit("disconnect", 
-					playerdata.userid,
-					playerdata.name,
-					playerdata.networkid,
-					playerdata.reason,
-					playerdata.bot
+					playerdata.message.userid,
+					playerdata.message.name,
+					playerdata.message.networkid,
+					playerdata.message.reason,
+					playerdata.message.bot
 				)
 			})
-			this.server.socket.on(Events.PlayerChat, (data) => {
+			this.server.socket?.on(Events.PlayerChat, (data) => {
 				var msg = data.message
 				var plr = this.players.get(msg.userid) ?? new Player(this, {id: msg.userid}, true)
 				this.players.set(msg.userid, plr)
@@ -109,7 +114,7 @@ import { checkBytes } from "./Utilities.js"
 	 * @param {number} id - The player's ID
 	 * @returns {Object} - Player object, or `null` if not found.
 	 */
-	get(id) {
+	get(id: number) {
 		return this.players.get(id) ?? null
 	}
 
@@ -120,9 +125,9 @@ import { checkBytes } from "./Utilities.js"
 	 * @function
 	 * @param {string} message - The message to send.
 	 */
-	broadcast(message) {
+	broadcast(message: string) {
 		if (checkBytes(message, 256)) return
-		return this.server.socket.send(Messages.PlayerChatAll, {
+		return this.server.socket?.send(Messages.PlayerChatAll, {
 			message: message
 		})
 	}
@@ -134,9 +139,9 @@ import { checkBytes } from "./Utilities.js"
 	 * @function
 	 * @param {string} message - The message to send.
 	 */
-	broadcastHint(message) {
+	broadcastHint(message: string) {
 		if (checkBytes(message, 256)) return
-		return this.server.socket.send(Messages.PlayerHintAll, {
+		return this.server.socket?.send(Messages.PlayerHintAll, {
 			id: this.id,
 			message: message
 		})
@@ -149,9 +154,9 @@ import { checkBytes } from "./Utilities.js"
 	 * @function
 	 * @param {string} message - The message to send.
 	 */
-	broadcastCenterHint(message) {
+	broadcastCenterHint(message: string) {
 		if (checkBytes(message, 256)) return
-		return this.server.socket.send(Messages.PlayerCenterHintAll, {
+		return this.server.socket?.send(Messages.PlayerCenterHintAll, {
 			id: this.id,
 			message: message
 		})
@@ -164,8 +169,8 @@ import { checkBytes } from "./Utilities.js"
 	 * @function
 	 * @param {string} path - File path to the sound
 	 */
-	broadcastSound(path) {
+	broadcastSound(path: string) {
 		if (checkBytes(path, 256)) return
-		return this.server.socket.send(Messages.PlaySoundAll, path)
+		return this.server.socket?.send(Messages.PlaySoundAll, path)
 	}
 }

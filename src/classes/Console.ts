@@ -1,5 +1,6 @@
 
 import EventEmitter from "events"
+import { Server } from "./Server.js"
 import { Messages, Events } from "./Socket.js"
 
 /**
@@ -11,11 +12,13 @@ import { Messages, Events } from "./Socket.js"
  * @property {object} Server - The Server object this belongs to.
  */
 export class Console extends EventEmitter {
+	server: Server
+	
 	/**
 	 * @constructor
 	 * @param {object} server - The server this belongs to.
 	 */
-	constructor (server) {
+	constructor (server: Server) {
 		super()
 		this.server = server
 	}
@@ -27,8 +30,8 @@ export class Console extends EventEmitter {
 	 * @function
 	 * @param {string} message - The message to be printed.
 	 */
-	async print(message) {
-		return await this.server.socket.send(Messages.PrintToServer, message)
+	async print(message: string) {
+		return await this.server.socket?.send(Messages.PrintToServer, message)
 	}
 
 	/**
@@ -38,7 +41,7 @@ export class Console extends EventEmitter {
 	 * @function
 	 * @param {string} command - The command to be ran.
 	 */
-	async command(command) {
-		return await this.server.socket.send(Messages.ServerCommand, command)
+	async command(command: string) {
+		return await this.server.socket?.send(Messages.ServerCommand, command)
 	}
 }

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+	"outDir": "./dist",
+    "module": "commonjs",
+
+	"strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
