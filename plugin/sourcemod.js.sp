@@ -141,7 +141,7 @@ public Action Command_GenerateAuth(int args) {
 
 	Crypt_MD5(arg, output, sizeof(output));
 
-	PrintToServer("[SMJS] Set smjs_auth to: '%s'", output)
+	PrintToServer("[SMJS] Generated hash: '%s'", output)
 }
 
 public ConVarChanged(ConVar convar, const char[] oldValue, const char[] newValue) {
